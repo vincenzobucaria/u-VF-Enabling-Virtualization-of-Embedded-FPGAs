@@ -7,7 +7,7 @@ DOI: [10.1145/3771581](https://doi.org/10.1145/3771581)
 
 ## Overview
 
-μ-VF (micro-Virtual Functions) addresses the fundamental challenge of multi-tenancy on embedded FPGAs operating autonomously at the network edge. Unlike existing approaches that target datacenter-class FPGAs with external orchestration, μ-VF embeds all virtualization logic entirely onboard the FPGA unit, eliminating the need for any off-chip infrastructure.
+μ-VF addresses the fundamental challenge of multi-tenancy on embedded FPGAs operating autonomously at the network edge. Unlike existing approaches that target datacenter-class FPGAs with external orchestration, μ-VF embeds all virtualization logic entirely onboard the FPGA unit, eliminating the need for any off-chip infrastructure.
 
 Each tenant receives a complete virtual FPGA (vFPGA) comprising:
 - **Isolated container** on the Processing System (PS) for software execution
