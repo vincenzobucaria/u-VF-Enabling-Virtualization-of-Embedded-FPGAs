@@ -23,12 +23,6 @@ This abstraction provides users with the experience of owning a complete FPGA sy
 - **Fully on-device operation**: No external host servers or hypervisors required
 - **Zero-copy memory access**: Custom kernel modules for efficient hardware communication
 
-### Performance Highlights
-
-- **85% resource utilization** available for tenant applications (vs 50% in prior work)
-- **2.93% MMIO overhead** for single-tenant, 6.5% with four concurrent tenants
-- **1.8% memory throughput overhead** with 10,616 MB/s aggregate bandwidth
-- **20ns GPIO remapping** latency at 100 MHz
 
 ## Architecture
 
@@ -70,10 +64,35 @@ This abstraction provides users with the experience of owning a complete FPGA sy
 - **Tools**: Vivado Design Suite 2024.2 (for hardware development)
 - **Container Runtime**: Docker support on PYNQ
 
-### Installation
+## Installation
 
+> ⚠️ **Work in Progress**: This repository contains the complete software stack for μ-VF. Hardware components include pre-built bitstreams for ZCU102, Vivado TCL scripts, and base IP libraries for replicating the system. Comprehensive guides for software deployment and hardware synthesis will be added soon.
+
+### Quick Start
 ```bash
 # Clone the repository
 git clone https://github.com/vincenzobucaria/u-VF-Enabling-Virtualization-of-Embedded-FPGAs.git
 cd u-vf
+```
+
+### What's Included
+
+**Software Stack** ✅ (Complete):
+- Multi-tenant hypervisor with PR zone management
+- Client library (PYNQ-compatible API)
+- Kernel modules for zero-copy memory access
+- Container templates and examples
+
+**Hardware Components** 🔧 (Bitstreams + Sources):
+- Pre-built bitstreams for Xilinx ZCU102
+- Vivado TCL scripts for project recreation
+- Base IP library (Shore, ATLAS, Lake templates)
+- Constraint files and floorplanning
+
+**Coming Soon** 📋:
+- Complete software deployment guide
+- Step-by-step hardware synthesis tutorial
+- Custom IP development guidelines
+
+
 
