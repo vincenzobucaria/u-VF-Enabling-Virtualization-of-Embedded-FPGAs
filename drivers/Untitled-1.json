@@ -1,0 +1,17 @@
+compatible = "xlnx,zynqmp";
+ 2
+ fragment@0 {
+ target-path = "/";
+ 3
+Chapter n°3- Implementation Details
+ 60
+ 4
+ 5
+ 6
+ 7
+ 8
+ __overlay__ {
+ pr_0@b0000000 {
+ compatible = "generic-uio";
+ reg = <0x0 0xb0000000 0x0 0x00010000>;
+ no-interrupts
