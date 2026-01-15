@@ -23,12 +23,6 @@ This abstraction provides users with the experience of owning a complete FPGA sy
 - **Fully on-device operation**: No external host servers or hypervisors required
 - **Zero-copy memory access**: Custom kernel modules for efficient hardware communication
 
-### Performance Highlights
-
-- **85% resource utilization** available for tenant applications (vs 50% in prior work)
-- **2.93% MMIO overhead** for single-tenant, 6.5% with four concurrent tenants
-- **1.8% memory throughput overhead** with 10,616 MB/s aggregate bandwidth
-- **20ns GPIO remapping** latency at 100 MHz
 
 ## Architecture
 
@@ -70,10 +64,58 @@ This abstraction provides users with the experience of owning a complete FPGA sy
 - **Tools**: Vivado Design Suite 2024.2 (for hardware development)
 - **Container Runtime**: Docker support on PYNQ
 
-### Installation
+## Installation
 
+> ⚠️ **Work in Progress**: This repository contains the complete software stack for μ-VF. Hardware components include pre-built bitstreams for ZCU102, Vivado TCL scripts, and base IP libraries for replicating the system. For detailed information on the architecture and implementation, please refer to the [Master's thesis](docs/MasterThesis_VB.pdf) and [published paper](https://doi.org/10.1145/3771581). Comprehensive setup guides will be added soon.
+
+### Quick Start
 ```bash
 # Clone the repository
 git clone https://github.com/vincenzobucaria/u-VF-Enabling-Virtualization-of-Embedded-FPGAs.git
 cd u-vf
+```
+
+### What's Included
+
+**Software Stack** ✅ (Complete):
+- Multi-tenant hypervisor with PR zone management
+- Client library (PYNQ-compatible API)
+- Kernel modules for zero-copy memory access
+- Container templates and examples
+
+**Hardware Components** 🔧 (Bitstreams + Sources):
+- Pre-built bitstreams for Xilinx ZCU102
+- Vivado TCL scripts for project recreation
+- Base IP library (Shore, ATLAS, Lake templates)
+- Constraint files and floorplanning
+
+**Coming Soon** 📋:
+- Complete software deployment guide
+- Step-by-step hardware synthesis tutorial
+- Custom IP development guidelines
+
+## Citation
+
+If you use μ-VF in your research, please cite our paper:
+```bibtex
+@article{10.1145/3771581,
+author = {Bucaria, Vincenzo Alessio and Longo, Francesco and Merlino, Giovanni and Restuccia, Francesco},
+title = {µ-VF: Enabling Virtualization of Embedded FPGAs},
+year = {2025},
+issue_date = {December 2025},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {9},
+number = {3},
+url = {https://doi.org/10.1145/3771581},
+doi = {10.1145/3771581},
+abstract = {Despite growing interest in virtualization of Field-Programmable Gate Arrays (FPGAs), existing approaches predominantly target datacenter-class FPGAs, which heavily rely on external (powerful) servers for hypervisor execution and resource management. This significantly limits their suitability for edge environments where autonomy, energy efficiency, and direct low-latency access to physical Input/Output (I/O) are critical. To address this goal, this paper introduces µ-VF, a lightweight virtualization framework specifically designed to enable robust multi-tenancy on embedded FPGAs operating autonomously at the network edge. µ-VF embeds all virtualization logic entirely onboard the FPGA unit, eliminating the need for any off-chip infrastructure and thus significantly reducing overall system power consumption. Each tenant operates within a secure and isolated container on the on-chip Processing System (PS), coupled with exclusive access to a dedicated Programmable Logic (PL) region. Additionally, µ-VF fully virtualizes external General-Purpose Input/Output (GPIO) directly within the PL fabric, thus enabling independent, concurrent and latency-sensitive access to shared peripherals. We have implemented a prototype of µ-VF with a Zynq UltraScale+ ZCU102 board with PL operating at 100 MHz. Experimental results demonstrate that the hardware virtualization layer utilizes less than 10\% of the FPGA's logic resources, with 85\% available for tenant applications compared to 50\% in prior work. Moreover, µ-VF adds 2.93\% to Memory-Mapped I/O (MMIO) access latency compared to native execution for single-tenant operation, increasing to 6.5\% with four concurrent tenants. Memory throughput measurements show 1.8\% overhead for write operations and negligible impact on read operations, with aggregate throughput 17.1\% higher than previous frameworks. Hardware-based GPIO remapping completes in 20 nanoseconds.},
+journal = {Proc. ACM Meas. Anal. Comput. Syst.},
+month = dec,
+articleno = {66},
+numpages = {26},
+keywords = {containers, edge computing, fpga virtualization, hypervisor, i/o virtualization, iaas, iot, multi-tenancy, resource isolation, soc-fpga}
+}
+
+```
 
