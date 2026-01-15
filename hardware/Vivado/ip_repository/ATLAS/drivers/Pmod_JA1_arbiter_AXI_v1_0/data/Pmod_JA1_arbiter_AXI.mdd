@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER Pmod_JA1_arbiter_AXI
+	OPTION supported_peripherals = (Pmod_JA1_arbiter_AXI);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = Pmod_JA1_arbiter_AXI;
+END DRIVER
