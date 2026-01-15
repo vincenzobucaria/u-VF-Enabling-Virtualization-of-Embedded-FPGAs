@@ -66,7 +66,7 @@ This abstraction provides users with the experience of owning a complete FPGA sy
 
 ## Installation
 
-> ⚠️ **Work in Progress**: This repository contains the complete software stack for μ-VF. Hardware components include pre-built bitstreams for ZCU102, Vivado TCL scripts, and base IP libraries for replicating the system. For detailed information on the architecture and implementation, please refer to the [Master's thesis](docs/MasterThesis_VB) and [published paper](https://doi.org/10.1145/3771581). Comprehensive setup guides will be added soon.
+> ⚠️ **Work in Progress**: This repository contains the complete software stack for μ-VF. Hardware components include pre-built bitstreams for ZCU102, Vivado TCL scripts, and base IP libraries for replicating the system. For detailed information on the architecture and implementation, please refer to the [Master's thesis](docs/MasterThesis_VB.pdf) and [published paper](https://doi.org/10.1145/3771581). Comprehensive setup guides will be added soon.
 
 ### Quick Start
 ```bash
